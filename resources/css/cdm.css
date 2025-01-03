@@ -9,7 +9,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
-       url('../images/terminus-bg.png') no-repeat center center fixed;
+       url('../images/cdm-background.png') no-repeat center center fixed;
     background-size: cover;
     color: #f1f1f1;
 }
@@ -87,7 +87,7 @@ body {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 20px; /* Space between Icon Options and Roman Numerals */
 }
 
 .roman {
