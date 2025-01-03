@@ -15,16 +15,16 @@
          <h1>Come Back Soon</h1>
       </header>
 
-   <!-- Navbar with Dropdown and Home Button -->
-   <nav class="navbar">
-      <select id="mapSelect" onchange="navigateToMap()">
-         <option value="">Choose Your Map</option>
-         <option value="../../resources/maps/LibertyBalls.html">Liberty Falls</option>
-         <option value="../../resources/maps/terminus.html">Terminus</option>
-         <option value="cdm.html">Citadelle des Morts</option>
-      </select>
-      <button onclick="window.location.href='../../index.html';">Home</button>
-   </nav>
+      <!-- Navbar with Dropdown and Home Button -->
+      <nav class="navbar">
+         <select id="mapSelect" onchange="navigateToMap()">
+            <option value="">Choose Your Map</option>
+            <option value="LibertyBalls.html">Liberty Falls</option>
+            <option value="../../resources/maps/terminus.html">Terminus</option>
+            <option value="../../resources/maps/terminuscdm.html">Citadelle des Morts</option>
+         </select>
+         <button onclick="window.location.href='../../index.html';">Home</button>
+      </nav>
 
       <!-- Main Content with Message -->
       <main class="main-content">
@@ -35,5 +35,15 @@
       <footer class="footer">
          <p>Developed By <a href="https://github.com/SirCryptic">SirCryptic</a></p>
       </footer>
+      
+      <script>
+         function navigateToMap() {
+            const mapSelect = document.getElementById('mapSelect');
+            const selectedMap = mapSelect.value;
+            if (selectedMap) {
+                window.location.href = selectedMap;
+            }
+         }
+      </script>
    </body>
 </html>
