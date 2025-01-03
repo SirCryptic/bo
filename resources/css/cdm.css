@@ -87,7 +87,7 @@ body {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px; /* Space between Icon Options and Roman Numerals */
+    margin-top: 20px;
 }
 
 .roman {
@@ -211,14 +211,21 @@ body {
 .footer {
     text-align: center;
     margin-top: 40px;
-    padding: 10px 20px; /* Adjusting padding */
+    padding: 10px 20px;
  }
+ .cheat-sheet-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+    font-weight: bold;
+ }
+ 
  .cheat-sheet-container {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 20px;
  }
-
+ 
  .cheat-sheet-container img {
     max-width: 100%;
     height: auto;
