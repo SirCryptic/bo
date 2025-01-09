@@ -187,3 +187,50 @@ body {
 .footer a:hover {
    text-decoration: underline;
 }
+/* Tooltip container */
+.tooltip {
+   display: inline-block;
+   position: relative;
+}
+
+.tooltip-trigger {
+   text-decoration: none;
+   color: blue;
+   font-weight: bold;
+   cursor: pointer;
+   margin-left: 5px;
+}
+
+.tooltip-content {
+   display: none;
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   transform: translateX(-50%);
+   background-color: #000000;
+   border: 1px solid #ccc;
+   padding: 10px;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+   z-index: 100;
+   max-width: none;
+   text-align: center;
+   border-radius: 5px;
+}
+
+.tooltip-content img {
+   width: 400px;
+   height: auto;
+   margin-bottom: 10px;
+   border: 1px solid #000000;
+   border-radius: 5px;
+}
+
+.tooltip-content p {
+   font-size: 14px;
+   color: #f8f8f8;
+}
+
+/* Show the tooltip when hovering over the trigger */
+.tooltip:hover .tooltip-content {
+   display: block;
+}
