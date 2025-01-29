@@ -19,7 +19,7 @@
    </head>
    <body>
       <header class="header">
-         <img src="../../resources/images/logo.png" alt="Logo" class="logo">
+         <img src="../../resources/images/logo.png" alt="Liberty Falls Logo" class="logo">
          <h1>Come Back Soon</h1>
       </header>
 
@@ -46,15 +46,26 @@
       </main>
 
       <footer class="footer">
-         <p>Developed By <a href="https://github.com/SirCryptic">SirCryptic</a></p>
+         <p>Developed By <a href="https://github.com/SirCryptic" target="_blank" rel="noopener noreferrer">SirCryptic</a></p>
       </footer>
 
       <script>
+         // Function for navigation from dropdown with Open Redirect Prevention
          function navigateToMap() {
-            const mapSelect = document.getElementById('mapSelect');
-            const selectedMap = mapSelect.value;
-            if (selectedMap) {
+            var selectedMap = document.getElementById("mapSelect").value;
+
+            // List of valid map URLs to prevent open redirects
+            const validMaps = [
+                "resources/maps/libertyballs.html",
+                "../../resources/maps/terminus.html",
+                "../../resources/maps/cdm.html",
+                "../../resources/maps/tomb.html"
+            ];
+
+            if (selectedMap && validMaps.includes(selectedMap)) {
                 window.location.href = selectedMap;
+            } else {
+                console.warn('Invalid map selected!');
             }
          }
       </script>

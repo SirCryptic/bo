@@ -4,22 +4,22 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Citadelle des Morts</title>
-      <meta property="og:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
-      <meta property="og:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" />
-      <meta property="og:url" content="https://sircryptic.github.io/bo/" />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Project BO" />
-      <meta name="twitter:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
-      <meta name="twitter:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" />
+   <meta property="og:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
+   <meta property="og:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" />
+   <meta property="og:url" content="https://sircryptic.github.io/bo/" />
+   <meta property="og:type" content="website" />
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="Project BO" />
+   <meta name="twitter:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
+   <meta name="twitter:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" />
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
    <link rel="icon" href="../../resources/images/logo.png" type="image/png">
    <link rel="stylesheet" href="../css/cdm.css">
 </head>
 <body>
    <header class="header">
-      <img src="../../resources/images/logo.png" alt="Logo" class="logo">
-      <h1>Citadel Des Morts</h1>
+      <img src="../../resources/images/logo.png" alt="Liberty Falls Logo" class="logo">
+      <h1>Citadelle des Morts</h1>
    </header>
 
    <!-- Navbar with Dropdown and Home Button -->
@@ -31,18 +31,18 @@
          <option value="cdm.html">Citadelle des Morts</option>
          <option value="../../resources/maps/tomb.html">The Tomb</option>
       </select>
-         <!-- Container for buttons -->
-         <div class="nav-buttons">
-            <button onclick="window.location.href='../../index.html';">Home</button>
-            <button onclick="window.location.href='../../resources/misc/camotracker.html';">Camo Tracker</button>
-         </div>
-      </nav>
+      <!-- Container for buttons -->
+      <div class="nav-buttons">
+         <button onclick="window.location.href='../../index.html';">Home</button>
+         <button onclick="window.location.href='../../resources/misc/camotracker.html';">Camo Tracker</button>
+      </div>
+   </nav>
 
-<!-- Void Sword Cheat Sheet Title and Image -->
-<p class="cheat-sheet-title">Void Sword Cheat Sheet</p>
-<div class="cheat-sheet-container">
-   <img src="../../resources/images/cheat-sheet-cdm-raven.png" alt="Raven Sword Cheat Sheet">
-</div>
+   <!-- Void Sword Cheat Sheet Title and Image -->
+   <p class="cheat-sheet-title">Void Sword Cheat Sheet</p>
+   <div class="cheat-sheet-container">
+      <img src="../../resources/images/cheat-sheet-cdm-raven.png" alt="Raven Sword Cheat Sheet">
+   </div>
 
    <div class="calculator">
       <div class="option-group">
@@ -89,7 +89,7 @@
    </div>
 
    <footer class="footer">
-      <p>Developed By <a href="https://github.com/SirCryptic">SirCryptic</a></p>
+      <p>Developed By <a href="https://github.com/SirCryptic" target="_blank" rel="noopener noreferrer">SirCryptic</a></p>
    </footer>
 
    <script>
@@ -136,14 +136,24 @@
          });
       }
 
-      // Function to navigate to the selected map
-      function navigateToMap() {
-         const mapSelect = document.getElementById('mapSelect');
-         const selectedMap = mapSelect.value;
-         if (selectedMap) {
-            window.location.href = selectedMap;
+         // Function for navigation from dropdown with Open Redirect Prevention
+         function navigateToMap() {
+            var selectedMap = document.getElementById("mapSelect").value;
+
+            // List of valid map URLs to prevent open redirects
+            const validMaps = [
+                "../../resources/maps/libertyballs.html",
+                "../../resources/maps/terminus.html",
+                "resources/maps/cdm.html",
+                "../../resources/maps/tomb.html"
+            ];
+
+            if (selectedMap && validMaps.includes(selectedMap)) {
+                window.location.href = selectedMap;
+            } else {
+                console.warn('Invalid map selected!');
+            }
          }
-      }
    </script>
 </body>
 </html>

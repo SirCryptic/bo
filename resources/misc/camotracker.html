@@ -4,6 +4,14 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Weapon Camo Tracker BO6 [Zombies Edition]</title>
+   <meta property="og:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
+   <meta property="og:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" />
+   <meta property="og:url" content="https://sircryptic.github.io/bo/" />
+   <meta property="og:type" content="website" />
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="Project BO" />
+   <meta name="twitter:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
+   <meta name="twitter:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" />
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="../css/camotracker.css">
    <link rel="stylesheet" href="../css/notification.css"> <!-- Link to the new notification CSS -->
@@ -12,7 +20,7 @@
 <body>
    <!-- Notification Box -->
    <div id="notification" class="notification">
-      <span>ONLY THIS PAGE stores your progress in local storage. Your data will be saved for future visits.</span>
+      <span>This site stores your progress in local storage. Your data will be saved for future visits.</span>
       <a href="#" id="moreInfoLink" onclick="toggleMoreInfo()">More Info</a> <!-- More Info link -->
       <button onclick="dismissNotification()">Got it</button>
    </div>
@@ -45,6 +53,7 @@
             <option value="../../resources/maps/libertyballs.html">Liberty Falls</option>
             <option value="../../resources/maps/terminus.html">Terminus</option>
             <option value="../../resources/maps/cdm.html">Citadelle des Morts</option>
+            <option value="../../resources/maps/tomb.html">The Tomb</option>
          </select>
       </div>
       <div class="navbar-right">
@@ -671,13 +680,24 @@
          saveCheckboxState(weaponType, weaponName); // Save progress in localStorage
       }
 
-      // Map navigation
-      function navigateToMap() {
-         const map = document.getElementById("mapSelect").value;
-         if (map) {
-            window.location.href = map;
+         // Function for navigation from dropdown with Open Redirect Prevention
+         function navigateToMap() {
+            var selectedMap = document.getElementById("mapSelect").value;
+
+            // List of valid map URLs to prevent open redirects
+            const validMaps = [
+                "../../resources/maps/libertyballs.html",
+                "../../resources/maps/terminus.html",
+                "../../resources/maps/cdm.html",
+                "../../resources/maps/tomb.html"
+            ];
+
+            if (selectedMap && validMaps.includes(selectedMap)) {
+                window.location.href = selectedMap;
+            } else {
+                console.warn('Invalid map selected!');
+            }
          }
-      }
    </script>
 <script>
    // Define weapon types as they are in the dropdown

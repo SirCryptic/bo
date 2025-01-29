@@ -17,6 +17,7 @@
       <link rel="icon" href="resources/images/logo.png" type="image/png">
       <link rel="stylesheet" href="resources/css/main.css">
       <style>
+         /* You can add styles here, if necessary */
       </style>
    </head>
    <body>
@@ -75,15 +76,26 @@
       </main>
 
       <footer class="footer">
-         <p>Developed By <a href="https://github.com/SirCryptic">SirCryptic</a></p>
+         <p>Developed By <a href="https://github.com/SirCryptic" target="_blank" rel="noopener noreferrer">SirCryptic</a></p>
       </footer>
 
       <script>
          function navigateToMap() {
             var mapSelect = document.getElementById('mapSelect');
             var selectedMap = mapSelect.value;
-            if (selectedMap) {
+
+            // List of valid map URLs to prevent open redirects
+            const validMaps = [
+                'resources/maps/libertyballs.html',
+                'resources/maps/terminus.html',
+                'resources/maps/cdm.html',
+                'resources/maps/tomb.html'
+            ];
+
+            if (selectedMap && validMaps.includes(selectedMap)) {
                window.location.href = selectedMap;
+            } else {
+               console.warn('Invalid map selected!');
             }
          }
       </script>
