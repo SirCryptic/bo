@@ -1,156 +1,256 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>The Tomb</title>
-      <meta property="og:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
-      <meta property="og:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" />
-      <meta property="og:url" content="https://sircryptic.github.io/bo/" />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Project BO" />
-      <meta name="twitter:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
-      <meta name="twitter:image" content="https://repository-images.githubusercontent.com/911676030/d12b753d-b210-4273-b19c-e711b3ea25bc" /> 
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-      <link rel="icon" href="../images/logo.png" type="image/png">
-      <link rel="stylesheet" href="../css/tomb.css">
-   </head>
-   <body>
-      <header class="header">
-         <img src="../images/logo.png" alt="Logo" class="logo">
-         <h1>The Tomb</h1> 
-      </header>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ 
+ body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+        url('../images/tomb.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #f1f1f1;
+ }
+ 
+ /* Header Styles */
+ .header {
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+ }
+ 
+ .logo {
+    width: 50px;
+    height: 50px;
+ }
+ 
+ .header h1 {
+    color: #ffcc00;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+ }
+ 
+ /* Navbar Styles */
+ .navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+ }
+ 
+ .navbar select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+    cursor: pointer;
+ }
+ 
+ .navbar select:hover {
+    background-color: #333;
+ }
+ 
+ .navbar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(255, 204, 0, 0.5);
+ }
+ 
+ .navbar button:hover {
+    background-color: #ffc107;
+ }
+ 
+ /* Main Content */
+ .main-content {
+    padding: 20px;
+ }
+ 
+ .section {
+    margin: 20px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+ }
+ 
+ /* Checklist Styles */
+ .checklist-section input[type="checkbox"] {
+    margin-right: 10px;
+ }
+ 
+ .checklist-section label {
+    font-size: 16px;
+    color: #f1f1f1;
+ }
+ 
+ /* Grid Styles */
+ .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 2px;
+    margin-top: 20px;
+    justify-content: left;
+ }
+ 
+ .cell {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #777;
+    font-size: 16px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: #222;
+    color: #fff;
+ }
+ 
+ .cell:hover {
+    background-color: #333;
+    border-color: #ffcc00;
+ }
+ 
+ .cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+ 
+ /* Puzzle Calculator Section */
+ .puzzle-calculator-section {
+    margin-top: 30px;
+ }
+ 
+ #iconGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 100%;
+ }
+ 
+ /* Collapsible Styles */
+ .collapsible {
+    margin: 20px;
+    background-color: #444;
+    border: none;
+    color: #ffcc00;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(255, 204, 0, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+ }
+ 
+ .collapsible:hover {
+    background-color: #555;
+    box-shadow: 0 3px 8px rgba(255, 204, 0, 0.7);
+ }
+ 
+ .content {
+    display: none;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    border-top: 2px solid #ffcc00;
+ }
+ 
+ /* Footer */
+ .footer {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 40px;
+    padding-bottom: 20px;
+ }
+ 
+ .footer a {
+    color: #ffcc00;
+    text-decoration: none;
+ }
+ 
+ .footer a:hover {
+    text-decoration: underline;
+ }
+ /* Tooltip container */
+ .tooltip {
+    display: inline-block;
+    position: relative;
+ }
+ 
+ .tooltip-trigger {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px;
+ }
+ 
+ .tooltip-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000000;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    max-width: none;
+    text-align: center;
+    border-radius: 5px;
+ }
+ 
+ .tooltip-content img {
+    width: 400px;
+    height: auto;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+ }
+ 
+ .tooltip-content p {
+    font-size: 14px;
+    color: #f8f8f8;
+ }
+ 
+ /* Show the tooltip when hovering over the trigger */
+ .tooltip:hover .tooltip-content {
+    display: block;
+ }
+ .checklist-container {
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+}
 
-      <!-- Navbar with Dropdown and Home Button -->
-      <nav class="navbar">
-         <select id="mapSelect" onchange="navigateToMap()">
-            <option value="">Choose Your Map</option>
-            <option value="../../resources/maps/libertyballs.html">Liberty Falls</option>
-            <option value="../../resources/maps/terminus.html">Terminus</option>
-            <option value="../../resources/maps/cdm.html">Citadelle des Morts</option>
-            <option value="resources/maps/tomb.html">The Tomb</option>
-         </select>
-         <div class="nav-buttons">
-            <button onclick="window.location.href='../../index.html';">Home</button>
-            <button onclick="window.location.href='../../resources/misc/camotracker.html';">Camo Tracker</button>
-         </div>
-      </nav>
+.checklist-items {
+   flex: 1;
+}
 
-      <main class="main-content">
-         <section class="checklist-section">
-            <h2>Ice Staff Checklist</h2>
-            <ul>
-               <li><strong>Obtain the Monocle:</strong> During Round 8, a Shock Mimic will spawn. Killing it will drop a Monocle.</li>
-               <li><strong>Destroy the Purple Lanterns:</strong> Shoot the purple lanterns around the map to guide them to the Tombs or Neolithic Catacombs. This will reveal Roman numeral symbols (I, II, III, IV, etc.).</li>
-               <li><strong>Complete the Roman Numeral Puzzles:</strong> In the Tombs, find the bull mural. Shoot the symbols in numerical order to create the Taurus constellation. Completing the puzzle triggers a lockdown event. Afterward, the Staff part will spawn.</li>
-               <li><strong>Complete the Second Puzzle:</strong> In the Neolithic Catacombs, shoot the symbols in the right order. Completing this will unlock the Ice Staff head.</li>
-               <li><strong>Complete the Ice Staff:</strong> Go to the Dark Aether Nexus and interact with the altar. This will trigger a lockdown event where you must protect the staff from Zombies. Once successful, the Ice Staff will be available for pickup.</li>
-            </ul>
+.checklist-image {
+   flex: 0 0 600px; /* Adjust width as needed */
+   margin-left: 20px;
+}
 
-            <p>Now you have the Ice Staff!</p>
-         </section>
-
-         <section class="checklist-section">
-            <h2>Main Easter Egg Tasks Checklist</h2>
-            <div class="checklist-container">
-               <div class="checklist-items">
-                  <input type="checkbox" id="craftIceStaff">
-                  <label for="craftIceStaff">Craft the Ice Staff (Check guide for detailed steps)</label><br>
-         
-                  <input type="checkbox" id="freezeLanterns">
-                  <label for="freezeLanterns">Use the Ice Staff to freeze the purple lanterns around the map</label><br>
-         
-                  <input type="checkbox" id="shootRocks">
-                  <label for="shootRocks">Shoot down the floating rocks with a purple symbol in the Dark Aether</label><br>
-         
-                  <input type="checkbox" id="noteSymbols">
-                  <label for="noteSymbols">Note which symbols are on the rocks</label><br>
-         
-                  <input type="checkbox" id="shootSymbols">
-                  <label for="shootSymbols">Shoot the corresponding symbols on the wall in the Dark Aether</label><br>
-         
-                  <input type="checkbox" id="fillOrb">
-                  <label for="fillOrb">Go back into the Dark Aether and kill Zombies to fill the purple orb with souls</label><br>
-         
-                  <input type="checkbox" id="upgradeIceStaff">
-                  <label for="upgradeIceStaff">Wait for the orb to go to the center of the area and upgrade the Ice Staff</label><br>
-         
-                  <input type="checkbox" id="statueChallenges">
-                  <label for="statueChallenges">Complete the Vermin, Parasite, and Amalgam statue challenges</label><br>
-         
-                  <input type="checkbox" id="verminReviveShot">
-                  <label for="verminReviveShot">Use the Ice Staff revive shot on the Vermin statue in the Dark Aether</label><br>
-         
-                  <input type="checkbox" id="verminLockdown">
-                  <label for="verminLockdown">Complete the lockdown near the Vermin statue in the spawn area</label><br>
-         
-                  <input type="checkbox" id="parasiteLockdown">
-                  <label for="parasiteLockdown">Complete the Parasite lockdown near the Stamin-Up Perk-a-Cola</label><br>
-         
-                  <input type="checkbox" id="amalgamLockdown">
-                  <label for="amalgamLockdown">Complete the Amalgam lockdown near the Quick-Revive Perk-a-Cola</label><br>
-               </div>
-         
-               <div class="checklist-image">
-                  <h3>Taurus constellation Puzzle Runes</h3>
-                  <img src="../images/tomb-runes.png" alt="Easter Egg Guide Image">
-               </div>
-            </div>
-         </section>
-
-         <section class="puzzle-calculator-section">
-            <h2>Final Boss Fight</h2>
-            <button type="button" class="collapsible">Click to Reveal Boss Fight Tips</button>
-            <div class="content">
-               <h3>Phase 1</h3>
-               <p>The final boss is located in the Dark Aether near the stone structure in the back of the area. After completing the statue challenges, a bridge will lead you to the boss battle.</p>
-               <h3>Phase 2</h3>
-               <p>Use only Pack-a-Punch Tier 3 weapons or legendary gold weapons to deal damage to the boss. Wonder Weapons will not work.</p>
-               <h3>Phase 3</h3>
-               <p>Survive the boss fight to get your rewards!</p>
-            </div>
-         </section>
-
-      </main>
-
-      <footer class="footer">
-         <p>Developed By <a href="https://github.com/SirCryptic" target="_blank" rel="noopener noreferrer">SirCryptic</a></p>
-      </footer>
-
-      <script>
-         // Collapsible functionality for boss fight section
-         const coll = document.getElementsByClassName("collapsible");
-         Array.from(coll).forEach(button => {
-             button.addEventListener("click", function() {
-                 this.classList.toggle("active");
-                 const content = this.nextElementSibling;
-                 if (content.style.display === "block") {
-                     content.style.display = "none";
-                 } else {
-                     content.style.display = "block";
-                 }
-             });
-         });
-
-         // Function for navigation from dropdown with Open Redirect Prevention
-         function navigateToMap() {
-            var selectedMap = document.getElementById("mapSelect").value;
-
-            // List of valid map URLs to prevent open redirects
-            const validMaps = [
-                "../../resources/maps/libertyballs.html",
-                "../../resources/maps/terminus.html",
-                "../../resources/maps/cdm.html",
-                "resources/maps/tomb.html"
-            ];
-
-            if (selectedMap && validMaps.includes(selectedMap)) {
-                window.location.href = selectedMap;
-            } else {
-                console.warn('Invalid map selected!');
-            }
-         }
-      </script>
-   </body>
-</html>
+.checklist-image img {
+   max-width: 100%;
+   height: 300px;
+   border-radius: 8px; /* Optional for rounded corners */
+}
