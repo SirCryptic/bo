@@ -29,7 +29,7 @@
             <option value="../../resources/maps/libertyballs.html">Liberty Falls</option>
             <option value="../../resources/maps/terminus.html">Terminus</option>
             <option value="../../resources/maps/cdm.html">Citadelle des Morts</option>
-            <option value="tomb.html">The Tomb</option>
+            <option value="resources/maps/tomb.html">The Tomb</option>
          </select>
          <div class="nav-buttons">
             <button onclick="window.location.href='../../index.html';">Home</button>
@@ -98,16 +98,68 @@
                </div>
             </div>
          </section>
-
+         <section class="rune-selection">
+            <h3>Rune Rememberance Tool</h3>
+            <p>Select up to three runes:</p>
+            <div class="runes-container">
+               <div class="rune" data-src="../images/tomb-runes/rune-1.png"><img src="../images/tomb-runes/rune-1.png" alt="Rune 1"></div>
+               <div class="rune" data-src="../images/tomb-runes/rune-2.png"><img src="../images/tomb-runes/rune-2.png" alt="Rune 2"></div>
+               <div class="rune" data-src="../images/tomb-runes/rune-3.png"><img src="../images/tomb-runes/rune-3.png" alt="Rune 3"></div>
+               <div class="rune" data-src="../images/tomb-runes/rune-4.png"><img src="../images/tomb-runes/rune-4.png" alt="Rune 4"></div>
+               <div class="rune" data-src="../images/tomb-runes/rune-5.png"><img src="../images/tomb-runes/rune-5.png" alt="Rune 5"></div>
+               <div class="rune" data-src="../images/tomb-runes/rune-6.png"><img src="../images/tomb-runes/rune-6.png" alt="Rune 6"></div>
+               <div class="rune" data-src="../images/tomb-runes/rune-7.png"><img src="../images/tomb-runes/rune-7.png" alt="Rune 7"></div>
+               <div class="rune" data-src="../images/tomb-runes/rune-8.png"><img src="../images/tomb-runes/rune-8.png" alt="Rune 8"></div>
+            </div>
+         
+            <h3>Selected Runes:</h3>
+            <div class="selected-runes">
+               <img id="selected1" src="" alt="Selected Rune 1" class="selected-img">
+               <img id="selected2" src="" alt="Selected Rune 2" class="selected-img">
+               <img id="selected3" src="" alt="Selected Rune 3" class="selected-img">
+            </div>
+         </section>
+      
+         <script>
+            const runes = document.querySelectorAll('.rune');
+            const selectedRunes = [];
+         
+            runes.forEach(rune => {
+               rune.addEventListener('click', () => {
+                  if (rune.classList.contains('selected')) {
+                     rune.classList.remove('selected');
+                     const index = selectedRunes.indexOf(rune);
+                     if (index > -1) selectedRunes.splice(index, 1);
+                  } else if (selectedRunes.length < 3) {
+                     rune.classList.add('selected');
+                     selectedRunes.push(rune);
+                  }
+                  updateSelectedRunes();
+               });
+            });
+         
+            function updateSelectedRunes() {
+               const selectedImages = document.querySelectorAll('.selected-img');
+               selectedImages.forEach((img, index) => {
+                  if (selectedRunes[index]) {
+                     img.src = selectedRunes[index].dataset.src;
+                     img.style.display = "block";
+                  } else {
+                     img.src = "";
+                     img.style.display = "none";
+                  }
+               });
+            }
+         </script>
          <section class="puzzle-calculator-section">
             <h2>Final Boss Fight</h2>
             <button type="button" class="collapsible">Click to Reveal Boss Fight Tips</button>
             <div class="content">
-               <h3>Phase 1</h3>
+               <h4>Phase 1</h4>
                <p>The final boss is located in the Dark Aether near the stone structure in the back of the area. After completing the statue challenges, a bridge will lead you to the boss battle.</p>
-               <h3>Phase 2</h3>
+               <h4>Phase 2</h4>
                <p>Use only Pack-a-Punch Tier 3 weapons or legendary gold weapons to deal damage to the boss. Wonder Weapons will not work.</p>
-               <h3>Phase 3</h3>
+               <h4>Phase 3</h4>
                <p>Survive the boss fight to get your rewards!</p>
             </div>
          </section>
