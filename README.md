@@ -28,11 +28,11 @@
 
 ### **Main Tools**
 ```
-- Terminus Maths Puzzle Calculator
+- Terminus - Maths Puzzle Calculator | Easter Egg Checklist
 
-- CDM Void Sword Cheat Sheet
+- CDM - Void Sword Cheat Sheet | Rune Remembrance 
 
-- CDM Rune Remembrance
+- Tomb Taurus Constelation Cheat sheet | Rune Remembrance | Easter Egg Checklist
 ```
 
 ---
