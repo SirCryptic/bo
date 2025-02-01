@@ -32,7 +32,7 @@
 
 - CDM - Void Sword Cheat Sheet | Rune Remembrance 
 
-- Tomb Taurus Constelation Cheat sheet | Rune Remembrance | Easter Egg Checklist
+- Tomb - Taurus Constelation Cheat sheet | Rune Remembrance | Easter Egg Checklist
 ```
 
 ---
