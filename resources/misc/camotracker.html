@@ -4,145 +4,99 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Weapon Camo Tracker BO6 [Zombies Edition]</title>
-      <meta property="og:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
-      <meta property="og:image" content="https://repository-images.githubusercontent.com/911676030/17ce3025-1dc2-4d50-a1f6-1587468db8b7" />
-      <meta property="og:url" content="https://sircryptic.github.io/bo/" />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Project BO" />
-      <meta name="twitter:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
-      <meta name="twitter:image" content="https://repository-images.githubusercontent.com/911676030/17ce3025-1dc2-4d50-a1f6-1587468db8b7" />
+   <meta property="og:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
+   <meta property="og:image" content="https://repository-images.githubusercontent.com/911676030/17ce3025-1dc2-4d50-a1f6-1587468db8b7" />
+   <meta property="og:url" content="https://sircryptic.github.io/bo/" />
+   <meta property="og:type" content="website" />
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="Project BO" />
+   <meta name="twitter:description" content="A collection of tools and utilities for Call of Duty Zombies fans. Solve puzzles, track progress, and more!" />
+   <meta name="twitter:image" content="https://repository-images.githubusercontent.com/911676030/17ce3025-1dc2-4d50-a1f6-1587468db8b7" />
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="../css/camotracker.css">
-   <link rel="stylesheet" href="../css/notification.css"> <!-- Link to the new notification CSS -->
+   <link rel="stylesheet" href="../css/notification.css">
    <link rel="icon" href="../../resources/images/logo.png" type="image/png">
 </head>
 <body>
-   <!-- Notification Box -->
-   <div id="notification" class="notification">
-      <span>This site stores your progress in local storage. Your data will be saved for future visits.</span>
-      <a href="#" id="moreInfoLink" onclick="toggleMoreInfo()">More Info</a> <!-- More Info link -->
-      <button onclick="dismissNotification()">Got it</button>
-   </div>
 
-   <!-- Hidden Content for More Info -->
-   <div id="moreInfo" style="display: none;">
-      <p><strong>What is stored:</strong></p>
-      <ul>
-         <li>Your weapon selection and challenges progress.</li>
-         <li>Your checkbox states for each weapon's challenges.</li>
-      </ul>
-      <p><strong>What is not stored:</strong></p>
-      <ul>
-         <li>Your personal information or account details.</li>
-         <li>Any other data outside of the weapon tracker state.</li>
-      </ul>
-   </div>
-
-   <!-- Header -->
    <header class="header">
       <img src="../../resources/images/logo.png" alt="Logo" class="logo">
       <h1>Camo Tracker [Z-Edition | Black Ops 6]</h1>
    </header>
 
-   <!-- Navbar -->
    <nav class="navbar">
-      <div class="navbar-left">
-         <select id="mapSelect" class="dropdown" onchange="navigateToMap()">
-            <option value="">Choose Your Map</option>
-            <option value="../../resources/maps/libertyballs.html">Liberty Falls</option>
-            <option value="../../resources/maps/terminus.html">Terminus</option>
-            <option value="../../resources/maps/cdm.html">Citadelle des Morts</option>
-            <option value="../../resources/maps/tomb.html">The Tomb</option>
-         </select>
-      </div>
-      <div class="navbar-right">
-         <button onclick="window.location.href='../../index.html';" class="btn">Home</button>
-      </div>
+      <select id="mapSelect" class="dropdown" onchange="navigateToMap()">
+         <option value="">Choose Your Map</option>
+         <option value="../../resources/maps/libertyballs.html">Liberty Falls</option>
+         <option value="../../resources/maps/terminus.html">Terminus</option>
+         <option value="../../resources/maps/cdm.html">Citadelle des Morts</option>
+         <option value="../../resources/maps/tomb.html">The Tomb</option>
+      </select>
+      <button onclick="window.location.href='../../index.html';" class="btn">Home</button>
    </nav>
 
-   <!-- Weapon Tracker Section -->
    <main class="main-content">
       <div class="tracker-section">
          <h2>Select a Weapon Type</h2>
-         <div class="weapon-dropdowns">
-            <label for="weaponType">Weapon Type:</label>
-            <select id="weaponType" class="dropdown" onchange="populateWeapons()">
-               <option value="">Choose Weapon Type</option>
-               <option value="Assault Rifles">Assault Rifles</option>
-               <option value="SMGs">SMGs</option>
-               <option value="Shotguns">Shotguns</option>
-               <option value="LMGs">LMGs</option>
-               <option value="Marksman Rifles">Marksman Rifles</option>
-               <option value="Sniper Rifles">Sniper Rifles</option>
-               <option value="Pistols">Pistols</option>
-               <option value="Launchers">Launchers</option>
-               <option value="Melee">Melee</option>
-               <option value="Special">Special</option>
-            </select>
-         </div>
+         <select id="weaponType" class="dropdown" onchange="populateWeapons()">
+            <option value="">Choose Weapon Type</option>
+            <option value="Assault Rifles">Assault Rifles</option>
+            <option value="SMGs">SMGs</option>
+            <option value="Shotguns">Shotguns</option>
+            <option value="LMGs">LMGs</option>
+            <option value="Marksman Rifles">Marksman Rifles</option>
+            <option value="Sniper Rifles">Sniper Rifles</option>
+            <option value="Pistols">Pistols</option>
+            <option value="Launchers">Launchers</option>
+            <option value="Melee">Melee</option>
+            <option value="Special">Special</option>
+         </select>
 
-         <div class="weapon-names">
-            <label for="weaponName">Weapon Name:</label>
-            <select id="weaponName" class="dropdown" onchange="loadChallenges()">
-               <option value="">Select Weapon</option>
-            </select>
-         </div>
+         <select id="weaponName" class="dropdown" onchange="loadChallenges()">
+            <option value="">Select Weapon</option>
+         </select>
 
-         <!-- Weapon Stats -->
          <h2>Challenges</h2>
-         <div id="challenges" class="stats-container checklist-section">
-            <label>
-               <input type="checkbox" id="criticalKills">
-               2000 Critical Kills (Required for Any Camo Challenges.)
-            </label>
-         </div>
+         <div id="challenges" class="stats-container checklist-section"></div>
 
-         <!-- Progress Tracker -->
-         <div id="progressSection">
-            <h3>Progress Tracker</h3>
-            <p>Progress: <span id="progressPercentage">0%</span></p>
-            <div id="progressBar" class="progress-bar">
-               <div id="progressFill" class="progress-fill"></div>
-            </div>
+         <h3>Progress Tracker</h3>
+         <p>Progress: <span id="progressPercentage">0%</span></p>
+         <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
          </div>
       </div>
+
+      <div class="camo-progress-container">
+         <div id="globalTracker" class="global-progress">
+            <h2>Global Camo Progress</h2>
+            <p>Mystic Gold: <span id="mysticGoldCount">0</span>/33</p>
+            <p>Opal: <span id="opalCount">0</span>/33</p>
+            <p>Afterlife: <span id="afterlifeCount">0</span>/33</p>
+            <p>Nebula: <span id="nebulaCount">0</span>/33</p>
+         </div>
+      
+         <div class="unlock-requirements">
+            <h2>Unlock Requirements</h2>
+            <p><strong>Mystic Gold Unlock:</strong> Unlock The 2 Challenge Camo's Relevent To Your Weapon.</p>
+            <p><strong>Opal Unlock:</strong> Unlock Mystic Gold on several weapons in one sub type eg: 6 SMG's.</p>
+            <p><strong>Afterlife Unlock:</strong> Unlock Opal on 33 other weapons.</p>
+            <p><strong>Nebula Unlock:</strong> Unlock Afterlife on 33 other weapons.</p>
+         </div>
+      </div>
+      
+
    </main>
 
-   <!-- Footer -->
-   <footer class="footer">
-      <button onclick="downloadAllProgress()" class="btn">Download All Progress</button>
-      <p>Developed By <a href="https://github.com/SirCryptic">SirCryptic</a> | <a href="https://github.com/SirCryptic/bo/issues">Submit a Issue</a></p>
-   </footer>
+<!-- Footer -->
+<footer class="footer">
+   <button onclick="downloadAllProgress()" class="btn">Download All Progress</button>
+   <p>Developed By <a href="https://github.com/SirCryptic" target="_blank" rel="noopener noreferrer">SirCryptic</a> | 
+   <a href="https://github.com/SirCryptic/bo/issues" target="_blank" rel="noopener noreferrer">Submit an Issue</a></p>
+</footer>
 
-   <!-- JavaScript -->
+
    <script>
-      // Show the notification box
-      window.onload = function() {
-         document.getElementById('notification').style.display = 'block';
-      }
-
-      // Function to dismiss the notification box
-      function dismissNotification() {
-         document.getElementById('notification').style.display = 'none';
-      }
-
-      // Function to toggle More Info section visibility
-      function toggleMoreInfo() {
-         const moreInfo = document.getElementById("moreInfo");
-         const link = document.getElementById("moreInfoLink");
-
-         if (moreInfo.style.display === "none") {
-            moreInfo.style.display = "block";
-            link.textContent = "Show Less"; // Change link text to "Show Less"
-         } else {
-            moreInfo.style.display = "none";
-            link.textContent = "More Info"; // Revert back to "More Info"
-         }
-      }
-
-      // Sample Data Needs Replacing //
-      const challengesByWeapon = {
+const challengesByWeapon = {
     "Assault Rifles": {
         "XM4": [
             "Camo: Liquify - Get 300 kills with Napalm Burst ammo mod.",
@@ -581,19 +535,16 @@
             "To unlock Nebula challenges, you must have Afterlife on 33 other weapons.",
             "Camo: Nebula - Get 10 Elite Zombie Eliminations.",
         ],
-         },
-         // Add more weapon challenges as needed
+         }
       };
 
-      // Populate weapon names based on selected weapon type
       function populateWeapons() {
          const weaponType = document.getElementById("weaponType").value;
          const weaponNameDropdown = document.getElementById("weaponName");
-
          weaponNameDropdown.innerHTML = '<option value="">Select Weapon</option>';
 
          if (challengesByWeapon[weaponType]) {
-            Object.keys(challengesByWeapon[weaponType]).forEach((weapon) => {
+            Object.keys(challengesByWeapon[weaponType]).forEach(weapon => {
                const option = document.createElement("option");
                option.value = weapon;
                option.textContent = weapon;
@@ -602,173 +553,160 @@
          }
       }
 
-      // Load challenges for the selected weapon
       function loadChallenges() {
-         const weaponType = document.getElementById("weaponType").value;
-         const weaponName = document.getElementById("weaponName").value;
-         const challengesContainer = document.getElementById("challenges");
+    const weaponType = document.getElementById("weaponType").value;
+    const weaponName = document.getElementById("weaponName").value;
+    const challengesContainer = document.getElementById("challenges");
 
-         // Clear existing challenges except "2000 Critical Kills"
-         challengesContainer.innerHTML = `
-            <label>
-               <input type="checkbox" id="${weaponType}-${weaponName}-criticalKills" onchange="updateProgress()">
-               2000 Critical Kills (Required for Challenges)
-            </label>
-         `;
+    // Clear previous content
+    challengesContainer.innerHTML = `
+        <label>
+            <input type="checkbox" id="${weaponType}-${weaponName}-criticalKills" onchange="updateProgress()">
+            2000 Critical Kills (Required for Challenges)
+        </label>
+    `;
 
-         if (weaponType && weaponName && challengesByWeapon[weaponType][weaponName]) {
-            challengesByWeapon[weaponType][weaponName].forEach((challenge, index) => {
-               const challengeElement = document.createElement("label");
-               const checkboxId = `${weaponType}-${weaponName}-challenge-${index}`;
-               challengeElement.innerHTML = `
-                  <input type="checkbox" id="${checkboxId}" onchange="updateProgress()">
-                  ${challenge}
-               `;
-               challengesContainer.appendChild(challengeElement);
-            });
-         }
+    if (weaponType && weaponName && challengesByWeapon[weaponType][weaponName]) {
+        challengesByWeapon[weaponType][weaponName].forEach((challenge, index) => {
+            const challengeElement = document.createElement("label");
+            const checkboxId = `${weaponType}-${weaponName}-challenge-${index}`;
 
-         loadCheckboxState(weaponType, weaponName); // Restore saved states
-         updateProgress(); // Update progress after loading
-      }
+            // If challenge contains "To unlock", make it static text instead of a checkbox
+            if (challenge.includes("To unlock")) {
+                challengeElement.innerHTML = `<p class="unlock-message">${challenge}</p>`;
+            } else {
+                challengeElement.innerHTML = `
+                    <input type="checkbox" id="${checkboxId}" onchange="updateProgress()">
+                    ${challenge}
+                `;
+            }
 
-      // Save checkbox state for the current weapon
+            challengesContainer.appendChild(challengeElement);
+        });
+    }
+
+    loadCheckboxState(weaponType, weaponName);
+    updateProgress();
+}
+
+
       function saveCheckboxState(weaponType, weaponName) {
          const checkboxes = document.querySelectorAll('#challenges input[type="checkbox"]');
          const states = {};
-
-         checkboxes.forEach((checkbox) => {
+         checkboxes.forEach(checkbox => {
             states[checkbox.id] = checkbox.checked;
          });
-
          localStorage.setItem(`${weaponType}-${weaponName}`, JSON.stringify(states));
       }
 
-      // Load checkbox state for the current weapon
       function loadCheckboxState(weaponType, weaponName) {
          const savedStates = JSON.parse(localStorage.getItem(`${weaponType}-${weaponName}`)) || {};
-         const checkboxes = document.querySelectorAll('#challenges input[type="checkbox"]');
-
-         checkboxes.forEach((checkbox) => {
+         document.querySelectorAll('#challenges input[type="checkbox"]').forEach(checkbox => {
             checkbox.checked = !!savedStates[checkbox.id];
-            checkbox.addEventListener("change", () => saveCheckboxState(weaponType, weaponName));
          });
       }
 
-      // Update the progress bar based on the checked challenges
       function updateProgress() {
-         const weaponType = document.getElementById("weaponType").value;
-         const weaponName = document.getElementById("weaponName").value;
-
-         const challengesContainer = document.getElementById("challenges");
-         const checkboxes = challengesContainer.querySelectorAll('input[type="checkbox"]');
-         let completed = 0;
-
-         checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-               completed++;
-            }
-         });
-
-         const total = checkboxes.length;
-         const progress = (completed / total) * 100;
-
-         // Update progress bar and percentage
+         const checkboxes = document.querySelectorAll('#challenges input[type="checkbox"]');
+         let completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+         let progress = checkboxes.length ? (completed / checkboxes.length) * 100 : 0;
          document.getElementById("progressFill").style.width = `${progress}%`;
          document.getElementById("progressPercentage").textContent = `${Math.round(progress)}%`;
-
-         saveCheckboxState(weaponType, weaponName); // Save progress in localStorage
+         saveCheckboxState(document.getElementById("weaponType").value, document.getElementById("weaponName").value);
+         updateGlobalTracker();
       }
 
-         // Function for navigation from dropdown with Open Redirect Prevention
-         function navigateToMap() {
-            var selectedMap = document.getElementById("mapSelect").value;
+      function updateGlobalTracker() {
+    let mysticGoldCount = 0;
+    let opalCount = 0;
+    let afterlifeCount = 0;
+    let nebulaCount = 0;
 
-            // List of valid map URLs to prevent open redirects
-            const validMaps = [
-                "../../resources/maps/libertyballs.html",
-                "../../resources/maps/terminus.html",
-                "../../resources/maps/cdm.html",
-                "../../resources/maps/tomb.html"
-            ];
+    Object.keys(localStorage).forEach((key) => {
+        const savedStates = JSON.parse(localStorage.getItem(key));
 
-            if (selectedMap && validMaps.includes(selectedMap)) {
-                window.location.href = selectedMap;
-            } else {
-                console.warn('Invalid map selected!');
-            }
-         }
+        if (typeof savedStates === "object") {
+            Object.keys(savedStates).forEach(challengeKey => {
+                if (savedStates[challengeKey] === true) {
+                    const challengeText = document.getElementById(challengeKey)?.parentElement.textContent || "";
+                    if (challengeText.includes("Mystic Gold")) mysticGoldCount++;
+                    if (challengeText.includes("Opal")) opalCount++;
+                    if (challengeText.includes("Afterlife")) afterlifeCount++;
+                    if (challengeText.includes("Nebula")) nebulaCount++;
+                }
+            });
+        }
+    });
+
+    document.getElementById("mysticGoldCount").textContent = mysticGoldCount;
+    document.getElementById("opalCount").textContent = opalCount;
+    document.getElementById("afterlifeCount").textContent = afterlifeCount;
+    document.getElementById("nebulaCount").textContent = nebulaCount;
+}
+
+function downloadAllProgress() {
+    const formattedData = formatProgressData(localStorage);
+    const blob = new Blob([formattedData], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "camo_progress.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function formatProgressData(storageData) {
+    let formattedData = {};
+
+    Object.keys(storageData).forEach((key) => {
+        const savedStates = JSON.parse(storageData.getItem(key));
+        if (typeof savedStates === "object") {
+            formattedData[key] = {
+                weaponProgress: getWeaponProgress(savedStates),
+                challenges: savedStates
+            };
+        }
+    });
+
+    return JSON.stringify(formattedData, null, 3); // 3 is the number of spaces for indentation
+}
+
+function getWeaponProgress(challengeData) {
+    let progress = {
+        mysticGold: 0,
+        opal: 0,
+        afterlife: 0,
+        nebula: 0
+    };
+
+    Object.keys(challengeData).forEach(challengeKey => {
+        if (challengeData[challengeKey] === true) {
+            if (challengeKey.includes("Mystic Gold")) progress.mysticGold++;
+            if (challengeKey.includes("Opal")) progress.opal++;
+            if (challengeKey.includes("Afterlife")) progress.afterlife++;
+            if (challengeKey.includes("Nebula")) progress.nebula++;
+        }
+    });
+
+    return progress;
+}
+
+function navigateToMap() {
+    const mapSelect = document.getElementById("mapSelect");
+    const selectedMap = mapSelect.value;
+
+    if (selectedMap) {
+        window.location.href = selectedMap; // Navigate to the selected map
+    }
+}
+
+
+
+
    </script>
-<script>
-   // Define weapon types as they are in the dropdown
-   const weaponTypes = [
-      "Assault Rifles",
-      "SMGs",
-      "Shotguns",
-      "LMGs",
-      "Marksman Rifles",
-      "Sniper Rifles",
-      "Pistols",
-      "Launchers",
-      "Melee",
-      "Special"
-   ];
-
-   // Function to download progress for all weapons
-   function downloadAllProgress() {
-      const progressData = {};
-
-      // Iterate through all keys in localStorage
-      for (let i = 0; i < localStorage.length; i++) {
-         const key = localStorage.key(i);
-
-         // Only process keys that match the format: weaponType-weaponName
-         const keyParts = key.split("-");
-         if (keyParts.length >= 2) {
-            const weaponType = keyParts[0];
-            const weaponName = keyParts[1];
-
-            // Ensure the weaponType exists in our defined list
-            if (weaponTypes.includes(weaponType)) {
-               const savedStates = JSON.parse(localStorage.getItem(key)) || {};
-
-               // Organize progress data by weapon type and weapon name
-               if (!progressData[weaponType]) {
-                  progressData[weaponType] = {};
-               }
-               progressData[weaponType][weaponName] = savedStates;
-            }
-         }
-      }
-
-      // Generate the text file content
-      const progressText = ["Weapon Challenges Progress:\n"];
-      weaponTypes.forEach((weaponType) => {
-         progressText.push(`Weapon Type: ${weaponType}`);
-         if (progressData[weaponType]) {
-            for (const [weaponName, challenges] of Object.entries(progressData[weaponType])) {
-               progressText.push(`  Weapon Name: ${weaponName}`);
-               progressText.push(`  Challenges Progress:`);
-               for (const [challengeKey, completed] of Object.entries(challenges)) {
-                  const challengeName = challengeKey.replace(`${weaponType}-${weaponName}-`, '');
-                  progressText.push(`    - ${challengeName}: ${completed ? 'Completed' : 'Incomplete'}`);
-               }
-            }
-         } else {
-            progressText.push(`  No progress recorded for this weapon type.`);
-         }
-         progressText.push(""); // Add a blank line between weapon types
-      });
-
-      // Create and download the file
-      const fileContent = progressText.join("\n");
-      const blob = new Blob([fileContent], { type: "text/plain" });
-      const downloadLink = document.createElement("a");
-      downloadLink.href = URL.createObjectURL(blob);
-      downloadLink.download = `Weapon-Progress.txt`;
-      downloadLink.click();
-   }
-</script>
 
 </body>
 </html>
