@@ -138,4 +138,36 @@
       border-radius: 8px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   }
-  
+.weapon-challenges-container {
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   gap: 20px;
+   margin-top: 20px;
+}
+
+.stats-container {
+   flex: 1;
+   max-width: 600px;
+   text-align: left;
+}
+
+/* Styling for the weapon image container */
+.weapon-image-container {
+   flex-shrink: 0; 
+   text-align: center;
+   max-width: 300px; 
+   order: 2; 
+}
+
+.weapon-image {
+   max-width: 100%;
+   height: auto;
+   border-radius: 12px;
+   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+   transition: transform 0.2s ease-in-out;
+}
+
+.weapon-image:hover {
+   transform: scale(1.15);
+}
