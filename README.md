@@ -6,8 +6,8 @@
 # Project Roadmap
 
 ### ⚔️ Weapon Images in Camo Tracker
-- [❌] Add images for all weapons in the camo tracker.
-- [❌] Ensure proper display and scaling of weapon images in the tracker UI.
+- [✅] Add images for all weapons in the camo tracker.
+- [➖] Ensure proper display and scaling of weapon images in the tracker UI.
 - [✅] ensure all camo challenges and weapon categories are updated. (Now Includes Season 2 Weapons)
 
 ### 🌐 Global Progress
@@ -15,10 +15,10 @@
 - [❌] Enable progress syncing across devices (if applicable, although i highly doubt this will ever be a feature).
 
 ### 📝 Finish and Update All Quest Checklists
-- [❌] Review all existing quests and checklist items. (not really a priority due to directed mode 🤔)
-- [❌] Fix any outdated information in existing checklists.
+- [➖] Review all existing quests and checklist items. (not really a priority due to directed mode 🤔)
+- [➖] Fix any outdated information in existing checklists.
 
-### 📥 Proper Challenge Naming When Downloading as `.txt`
+### 📥 Proper Challenge Naming When Downloading as `.json` (still unsure about if this should be a feature 🤔 )
 - [➖] Standardize the naming of challenges when downloaded as `.json`.
 - [➖] Add overall progress indicator within `.json` file.
 
