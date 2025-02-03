@@ -8,7 +8,7 @@
 ### ⚔️ Weapon Images in Camo Tracker
 - [❌] Add images for all weapons in the camo tracker.
 - [❌] Ensure proper display and scaling of weapon images in the tracker UI.
-- [➖] ensure all camo challenges and weapon categories are updated. (season 2 weapons missing)
+- [✅] ensure all camo challenges and weapon categories are updated. (Now Includes Season 2 Weapons)
 
 ### 🌐 Global Progress
 - [➖] Implement global progress tracking for the entire Project BO suite. (Still Needs Work)
