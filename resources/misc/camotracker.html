@@ -35,36 +35,45 @@
       <button onclick="window.location.href='../../index.html';" class="btn">Home</button>
    </nav>
 
-   <main class="main-content">
-      <div class="tracker-section">
-         <h2>Select a Weapon Type</h2>
-         <select id="weaponType" class="dropdown" onchange="populateWeapons()">
-            <option value="">Choose Weapon Type</option>
-            <option value="Assault Rifles">Assault Rifles</option>
-            <option value="SMGs">SMGs</option>
-            <option value="Shotguns">Shotguns</option>
-            <option value="LMGs">LMGs</option>
-            <option value="Marksman Rifles">Marksman Rifles</option>
-            <option value="Sniper Rifles">Sniper Rifles</option>
-            <option value="Pistols">Pistols</option>
-            <option value="Launchers">Launchers</option>
-            <option value="Melee">Melee</option>
-            <option value="Special">Special</option>
-         </select>
+   <div class="tracker-section">
+    <h2>Select a Weapon Type</h2>
+    <select id="weaponType" class="dropdown" onchange="populateWeapons()">
+        <option value="">Choose Weapon Type</option>
+        <option value="Assault Rifles">Assault Rifles</option>
+        <option value="SMGs">SMGs</option>
+        <option value="Shotguns">Shotguns</option>
+        <option value="LMGs">LMGs</option>
+        <option value="Marksman Rifles">Marksman Rifles</option>
+        <option value="Sniper Rifles">Sniper Rifles</option>
+        <option value="Pistols">Pistols</option>
+        <option value="Launchers">Launchers</option>
+        <option value="Melee">Melee</option>
+        <option value="Special">Special</option>
+    </select>
 
-         <select id="weaponName" class="dropdown" onchange="loadChallenges()">
-            <option value="">Select Weapon</option>
-         </select>
+    <select id="weaponName" class="dropdown" onchange="loadChallenges()">
+        <option value="">Select Weapon</option>
+    </select>
 
-         <h2>Challenges</h2>
-         <div id="challenges" class="stats-container checklist-section"></div>
+    <h2>Challenges</h2>
 
-         <h3>Progress Tracker</h3>
-         <p>Progress: <span id="progressPercentage">0%</span></p>
-         <div class="progress-bar">
-            <div id="progressFill" class="progress-fill"></div>
-         </div>
-      </div>
+    <!-- Weapon Image and Challenges section -->
+    <div class="weapon-challenges-container">
+        <div id="weaponImageContainer" class="weapon-image-container">
+            <!-- Weapon image will go here -->
+        </div>
+        
+        <div id="challenges" class="stats-container checklist-section">
+            <!-- Challenges content goes here -->
+        </div>
+    </div>
+
+    <h3>Progress Tracker</h3>
+    <p>Progress: <span id="progressPercentage">0%</span></p>
+    <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+    </div>
+</div>
 
       <div class="camo-progress-container">
          <div id="globalTracker" class="global-progress">
@@ -96,6 +105,51 @@
 
 
    <script>
+          // Weapon Images Mapping
+          const weaponImages = {
+            "XM4": "../../resources/images/weapons/xm4.jpg",
+            "AK-74": "../../resources/images/weapons/ak74.png",
+            "AMES 85": "../../resources/images/weapons/ames85.png",
+            "GPR 91": "../../resources/images/weapons/gpr91.png",
+            "MODEL L": "../../resources/images/weapons/modell.png",
+            "GOBLIN MK 2": "../../resources/images/weapons/goblinmk2.png",
+            "AS VAL": "../../resources/images/weapons/asval.png",
+            "KRIG C": "../../resources/images/weapons/krigc.png",
+            "Cypher 091": "../../resources/images/weapons/cypher.png",
+            "C9": "../../resources/images/weapons/c9.png",
+            "KSV": "../../resources/images/weapons/ksv.png",
+            "TANTO .22": "../../resources/images/weapons/tanto.png",
+            "PP-919": "../../resources/images/weapons/pp919.png",
+            "JACKAL PDW": "../../resources/images/weapons/jackalpdw.png",
+            "KOMPAKT 92": "../../resources/images/weapons/kompakt92.png",
+            "SAUG": "../../resources/images/weapons/saug.png",
+            "PPSh-41": "../../resources/images/weapons/ppsh41.png",
+            "MARINE SP": "../../resources/images/weapons/marinesp.png",
+            "ASG-89": "../../resources/images/weapons/asg89.png",
+            "Maelstrom": "../../resources/images/weapons/maelstrom.png",
+            "PU-21": "../../resources/images/weapons/pu21.png",
+            "XMG": "../../resources/images/weapons/xmg.png",
+            "GPMG-7": "../../resources/images/weapons/gpmg7.png",
+            "Feng 82": "../../resources/images/weapons/feng82.png",
+            "SWAT 5.56": "../../resources/images/weapons/swat556.png",
+            "Tsarkov 7.62": "../../resources/images/weapons/tsarkov.png",
+            "AEK-973": "../../resources/images/weapons/aek973.png",
+            "DM-10": "../../resources/images/weapons/dm10.png",
+            "LW3A1 Frostline": "../../resources/images/weapons/lw3a1.png",
+            "SVD": "../../resources/images/weapons/svd.png",
+            "LR 7.62": "../../resources/images/weapons/lr.png",
+            "9mm PM": "../../resources/images/weapons/9mmpm.png",
+            "Grekhova": "../../resources/images/weapons/grekhova.png",
+            "GS45": "../../resources/images/weapons/gs45.png",
+            "Stryder .22": "../../resources/images/weapons/stryder.png",
+            "CIGMA 2B": "../../resources/images/weapons/cigma2b.png",
+            "HE-1": "../../resources/images/weapons/he1.png",
+            "Knife": "../../resources/images/weapons/knife.png",
+            "Baseball Bat": "../../resources/images/weapons/bbat.png",
+            "Drill": "../../resources/images/weapons/drill.png",
+            "Cleaver": "../../resources/images/weapons/cleaver.png",
+            "Sirin 9mm": "../../resources/images/weapons/sirin9mm.png"
+        };
 const challengesByWeapon = {
     "Assault Rifles": {
         "XM4": [
@@ -601,21 +655,39 @@ const challengesByWeapon = {
     const weaponType = document.getElementById("weaponType").value;
     const weaponName = document.getElementById("weaponName").value;
     const challengesContainer = document.getElementById("challenges");
+    const weaponImageContainer = document.getElementById("weaponImageContainer");
 
     // Clear previous content
-    challengesContainer.innerHTML = `
-        <label>
-            <input type="checkbox" id="${weaponType}-${weaponName}-criticalKills" onchange="updateProgress()">
-            2000 Critical Kills (Required for Challenges)
-        </label>
-    `;
+    challengesContainer.innerHTML = "";
+    weaponImageContainer.innerHTML = "";
 
-    if (weaponType && weaponName && challengesByWeapon[weaponType][weaponName]) {
+    // Add Critical Kills Challenge
+    const criticalKillLabel = document.createElement("label");
+    criticalKillLabel.innerHTML = `
+        <input type="checkbox" id="${weaponType}-${weaponName}-criticalKills" onchange="updateProgress()">
+        2000 Critical Kills (Required for Challenges)
+    `;
+    challengesContainer.appendChild(criticalKillLabel);
+
+    // Add weapon image if it exists in the mapping
+    if (weaponName && weaponImages[weaponName]) {
+        const weaponImage = document.createElement("img");
+        weaponImage.src = weaponImages[weaponName]; // Use predefined mapping
+        weaponImage.alt = weaponName;
+        weaponImage.className = "weapon-image";
+
+        // Clear previous images before adding a new one
+        weaponImageContainer.innerHTML = "";
+        weaponImageContainer.appendChild(weaponImage);
+    }
+
+    // Load challenges if they exist
+    if (challengesByWeapon[weaponType] && challengesByWeapon[weaponType][weaponName]) {
         challengesByWeapon[weaponType][weaponName].forEach((challenge, index) => {
             const challengeElement = document.createElement("label");
             const checkboxId = `${weaponType}-${weaponName}-challenge-${index}`;
 
-            // If challenge contains "To unlock", make it static text instead of a checkbox
+            // Display "To unlock" challenges as static text
             if (challenge.includes("To unlock")) {
                 challengeElement.innerHTML = `<p class="unlock-message">${challenge}</p>`;
             } else {
@@ -629,9 +701,11 @@ const challengesByWeapon = {
         });
     }
 
+    // Load saved checkbox states
     loadCheckboxState(weaponType, weaponName);
     updateProgress();
 }
+
 
 
       function saveCheckboxState(weaponType, weaponName) {
@@ -743,9 +817,10 @@ function navigateToMap() {
     const selectedMap = mapSelect.value;
 
     if (selectedMap) {
-        window.location.href = selectedMap;
+        window.location.href = selectedMap; // Navigate to the selected map
     }
 }
    </script>
+
 </body>
 </html>
